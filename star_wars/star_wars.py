@@ -147,5 +147,3 @@ def starwar(screen):
                 game=False
         win.blit(PointControll, (50,150))
         pygame.display.update()
-
-starwar(screen=1)
