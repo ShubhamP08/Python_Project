@@ -35,7 +35,6 @@ button_positions = [
 ]
 
 def render_neon_text(text, font, color, glow_color, pos, screen):
-
     for size in (3, 2, 1):
         glow = font.render(text, True, glow_color)
         glow_rect = glow.get_rect(center=pos)
@@ -68,6 +67,5 @@ def main_menu():
                         elif i == 2: starwar(screen)
                         elif i == 3: subprocess.Popen(["python3","sokoban/sokoban.py"])
     
-        pygame.display.flip()
-        
+        pygame.display.flip()    
 main_menu()

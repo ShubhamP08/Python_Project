@@ -54,14 +54,14 @@ def starwar(screen):
     win=pygame.display.set_mode((800, 600))
     clock = pygame.time.Clock()
 
-    HealthItem = Heal(320,440 , 60,60, 'star_wars/HealItem.png')
+    HealthItem = Heal(320,440 , 30,40, 'star_wars/HealItem.png')
 
     player = Sprite(320,440 , 60,60, 'star_wars/rocket.png')
     for i in range(5):
         enemy = Ufo(random.randint(0,11) * 60, random.randint(-300,-150), 65,40, 'star_wars/ufo.png', random.randint(1,5))
         UfoArray.add(enemy)
 
-    backgound = pygame.image.load('star_wars/galaxy.jpg')
+    backgound = pygame.image.load('star_wars/star_war_bg.jpeg')
     backgound = pygame.transform.scale(backgound, (800, 600))
     GameOverSprite = pygame.image.load('star_wars/game-over-screen.jpg')
     GameOverSprite = pygame.transform.scale(GameOverSprite, (800, 600))
@@ -147,3 +147,5 @@ def starwar(screen):
                 game=False
         win.blit(PointControll, (50,150))
         pygame.display.update()
+
+starwar(screen=1)
