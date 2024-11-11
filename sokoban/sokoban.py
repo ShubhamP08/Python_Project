@@ -47,7 +47,7 @@ class AboutDialog(tk.Frame):
         info = tk.Label(self, text=("%s %s - by %s" % (__package__, __version__, __author__)))
         info.grid(row=0)
 
-        self.ok_button = tk.Button(self, text="SAHI Hai", command=self.destroy)
+        self.ok_button = tk.Button(self, text="Perfect", command=self.destroy)
         self.ok_button.grid(row=1)
 
 
@@ -55,7 +55,7 @@ class CompleteDialog(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self = tk.Toplevel()
-        self.title("Level(s) complete!")
+        self.title("Level(s) completed!")
 
         info = tk.Label(self, text=("You Want To play Again Then Restert It"))
         info.grid(row=0)
@@ -127,7 +127,7 @@ class Application(tk.Frame):
 
         help_menu = tk.Menu(menu)
         menu.add_cascade(label="Help", menu=help_menu)
-        help_menu.add_command(label="Jankari Adhuri Hai Avi", command=user_menu.About)
+        help_menu.add_command(label="About Us", command=user_menu.About)
 
     def default_frame(self):
         start_width = 80

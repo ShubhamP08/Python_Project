@@ -2,9 +2,10 @@ import pygame
 import sys
 import subprocess
 
+
 from star_wars.star_wars import starwar
 from snake.snake import snake_game
-from toh.toh import toh  
+from toh.toh import toh
 
 pygame.init()
 
@@ -16,8 +17,8 @@ background_image = pygame.image.load("bg_img.jpg")
 background_image = pygame.transform.scale(background_image, (screen_width, screen_height))
 
 WHITE = (255, 255, 255)
-BLUE = (0, 0, 255)
-BG = (27, 198, 207)
+GREEN = (3, 252, 169)
+SHADOW = (240, 185, 7)
 NEON_WHITE = (200, 200, 200) 
 
 font = pygame.font.Font(None, 50)
@@ -48,13 +49,11 @@ def render_neon_text(text, font, color, glow_color, pos, screen):
 def main_menu():
     running = True
     while running:
+
         screen.blit(background_image, (0, 0))
-
-        render_neon_text(title_text, title_font, WHITE, NEON_WHITE, (screen_width // 2, 180), screen)
-
+        render_neon_text(title_text, title_font, GREEN, WHITE, (screen_width // 2, 180), screen)
         for i, game_text in enumerate(game_texts):
-            render_neon_text(game_text, font, WHITE, NEON_WHITE, button_positions[i], screen)
-        
+            render_neon_text(game_text, font, WHITE, SHADOW, button_positions[i], screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -62,13 +61,13 @@ def main_menu():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = event.pos
                 for i, pos in enumerate(button_positions):
-                    text_rect = font.render(game_texts[i], True, WHITE).get_rect(center=pos)
+                    text_rect = font.render(game_texts[i], True, GREEN).get_rect(center=pos)
                     if text_rect.collidepoint(mouse_pos):
                         if i == 0: toh(screen)
                         elif i == 1: snake_game(screen)
                         elif i == 2: starwar(screen)
                         elif i == 3: subprocess.Popen(["python3","sokoban/sokoban.py"])
-
+    
         pygame.display.flip()
-
+        
 main_menu()
